@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ### Escuela Colombiana de Ingeniería
 
 ### Arquitecturas de Software
@@ -119,3 +120,6 @@ Ajuste el código para suprimir las condiciones de carrera. Tengan en cuenta que
 Escriba su análisis y la solución aplicada en el archivo ANALISIS_CONCURRENCIA.txt
 
 
+=======
+# ARSW-Lab_5
+>>>>>>> 7451f1793f7d74ce660e3b16399b090b8e6266fd
