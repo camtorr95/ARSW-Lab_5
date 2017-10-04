@@ -1,0 +1,12 @@
+Condiciones de carrera:
+Dado que cada cliente conectado al servidor puede realizar peticiones post y put, es posible que
+
+- Al realizar put/post sobre un elemento nuevo, un get realizado al mismo tiempo no retorne los elementos completos, incluyendo los recien agregados.
+
+- Puede haber un error al intentar agregar 2 blueprints al tiempo desde el comando POST, ya que POST no es idempotente. (PUT si y no hay inconveniente con blueprints existentes).
+
+- Al realizar put sobre un blueprint existente, actualizando su contenido es posible que otro get genere información que ya ha sido cambiada.
+
+Dado que estas son las únicas operaciones de escritura sobre la información (POST y PUT), no hay más condiciones de carrera.
+
+Las regiones críticas se encuentran en la implementación de los servicios blueprint. En este caso, InMemoryBlueprintPersistence, en todas las operaciones implementadas. En este caso, las operaciones solo son de lectura, escritura y eliminación de blueprints. Ya que sincronizar el acceso no es una solución eficiente, se ha cambiado la estructura de datos utilizada, a una estructura thread-safe. Más específicamente, a un ConcurrentHashMap, el cual tiene en cuenta todas estas condiciones de carrera a la hora de modificar y leer la información en memoria, sin sincronizar el acceso a los recursos.

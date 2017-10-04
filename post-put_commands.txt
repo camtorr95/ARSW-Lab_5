@@ -1,0 +1,39 @@
+###POST
+$ curl -i -X POST -HContent-Type:application/json -HAccept:application/json http://localhost:8080/blueprints -d '{
+    "author": "juan",
+    "points": [
+      {
+        "x": 0,
+        "y": 7
+      },
+      {
+        "x": 2,
+        "y": 15
+      },
+      {
+        "x": 4,
+        "y": 77
+      }
+    ],
+    "name": "cualquiera"
+  }'
+
+###PUT
+$ curl -i -X PUT -HContent-Type:application/json -HAccept:application/json http://localhost:8080/blueprints/camilo/print1 -d '{
+    "author": "camilo",
+    "points": [
+      {
+        "x": 2,
+        "y": 3
+      },
+      {
+        "x": 4,
+        "y": 5
+      },
+      {
+        "x": 6,
+        "y": 7
+      }
+    ],
+    "name": "nuevo_print"
+  }'
