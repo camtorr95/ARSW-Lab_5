@@ -88,6 +88,6 @@ public class BlueprintAPIController {
     @RequestMapping(path = "/{author}/{name}", method = RequestMethod.DELETE)
     public ResponseEntity<?> manejadorDeleteBlueprint(@PathVariable String author, @PathVariable String name) {
         bps.deleteBlueprint(author, name);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 }

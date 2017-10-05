@@ -7,15 +7,24 @@
 apiclient = (function () {
 
     return {
-        getBlueprintsByAuthor: function (authname, callback) {
+        getBlueprintsByAuthor: function (authname, callback, error_callback) {
             if (authname !== "") {
-                $.get("/blueprints/" + authname, callback);
+                $.get("/blueprints/" + authname, callback).fail(error_callback);
             }
         },
         getBlueprintsByNameAndAuthor: function (authname, bpname, callback) {
             $.get("/blueprints/" + authname + "/" + bpname, callback);
         },
-        putBlueprintByNameAndAuthor: function (authname, bpname, points) {
+        postBlueprint: function (authname, bpname, points) {
+            var data = {"author": authname, "points": points, "name": bpname};
+            return $.ajax({
+                url: "/blueprints",
+                type: 'POST',
+                data: JSON.stringify(data),
+                contentType: "application/json"
+            });
+        },
+        putBlueprint: function (authname, bpname, points) {
             var data = {"author": authname, "points": points, "name": bpname};
             return $.ajax({
                 url: "/blueprints/" + authname + "/" + bpname,

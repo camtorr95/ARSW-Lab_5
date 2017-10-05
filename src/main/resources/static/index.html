@@ -17,57 +17,51 @@ and open the template in the editor.
         <script src="js/app.js"></script>
         <link rel="stylesheet"
               href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
-        <style>
-            table {
-                font-family: arial, sans-serif;
-                border-collapse: collapse;
-                width: 80%;
-            }
-
-            td, th {
-                border: 1px solid #dddddd;
-                text-align: left;
-                padding: 8px;
-            }
-
-            tr:nth-child(even) {
-                background-color: #dddddd;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="css/mystyle.css">
     </head>
     <body onload="event_listener.init(), app.init()">
-        <div class="row">
-            <div class="col-md-5">
-                <br>
-                <div> 
-                    <label for="author_in">Author: </label>
-                    <input  type="text" name="Author" id="author_in" value="" />
-                    <button onclick="app.update_prints(document.getElementById('author_in').value)">Get Blueprints</button>
-                </div>
-                <br>
-                <table id="print_table">
-                    <thead>
-                        <tr>
-                            <th>Blueprint Name</th>
-                            <th>Number of Points</th>
-                            <th>Open</th>
-                        </tr>
-                    </thead>
-                    <tbody id="table_body">
-                    </tbody>
-                </table>
-                <br>
-                <div>
-                    <label id="total_label">Total user points: </label>
-                </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="row">
+                <h1>Blueprints</h1>
             </div>
-            <div class="col-md-4">
-                <label id="current_print"></label>
-                <br>
-                <canvas id="print_canvas" width="400" height="400" style="border:1px solid #000000;"></canvas>
-                <button>Create new Blueprint</button>
-                <button onclick="app.save_update()">Save/Update</button>
-                <button onclick="app.delete_blueprint()">Delete</button>
+            <div class="row">
+                <div class="col-md-5">
+                    <br>
+                    <div> 
+                        <label for="author_in">Author: </label>
+                        <input  type="text" name="Author" id="author_in" value="" />
+                        <button onclick="app.update_prints(document.getElementById('author_in').value)">Get Blueprints</button>
+                    </div>
+                    <hr>
+                    <table id="print_table">
+                        <thead>
+                            <tr>
+                                <th>Blueprint Name</th>
+                                <th>Number of Points</th>
+                                <th>Open</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table_body">
+                        </tbody>
+                    </table>
+                    <br>
+                    <div>
+                        <label id="total_label">Total user points: </label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label id="current_print">Current blueprint: N/A</label>
+                    <br>
+                    <div class="row">
+                        <canvas id="print_canvas" width="400" height="400"></canvas>
+                    </div>
+                    <div class ="row">
+                        <button onclick="app.create_blueprint()">Create Blueprint</button>
+                        <button onclick="app.save_update()">Save/Update</button>
+                        <button onclick="app.delete_blueprint()">Delete</button>
+                    </div>
+                </div>
             </div>
         </div>
     </body>

@@ -12,15 +12,12 @@ event_listener = (function () {
         init: function () {
 
             var canvas = $("#print_canvas").get(0);
-
-            var x_off = Math.round($("#print_canvas").offset().left);
-            var y_off = $("#print_canvas").offset().top;
             
             console.info('initialized');
 
             var handler = function (event) {
-                var in_x = event.pageX - x_off;
-                var in_y = event.pageY - y_off;
+                var in_x = event.pageX - Math.round($("#print_canvas").offset().left);
+                var in_y = event.pageY - Math.round($("#print_canvas").offset().top);
                 app.update_canvas(in_x, in_y);
             };
 
