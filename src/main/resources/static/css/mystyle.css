@@ -41,6 +41,14 @@ button{
     color: white;
 }
 
+#su_butt{
+    background-color: #4CAF50;
+}
+
+#delete{
+    background-color: #f44336;
+}
+
 button:active {
     background-color: #FFFFFF;
     color: black;

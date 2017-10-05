@@ -43,6 +43,7 @@ app = (function () {
         $("#current_print").text("Current blueprint: N/A");
         canvas_empty = true;
         $("#table_body").empty();
+        $("#total_label").text("Total user points: 0");
     };
 
     var show_print = function (print) {
